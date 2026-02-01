@@ -17,5 +17,3 @@ func _on_body_entered(body):
 		print("1")
 		if body.speed > win_speed:
 			print("you win!")
-	else:
-		return

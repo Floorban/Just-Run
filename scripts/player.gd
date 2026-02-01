@@ -15,7 +15,6 @@ func _ready() -> void:
 	speed_up_duration.timeout.connect(_on_timer_timeout)
 	target_speed = speed
 
-
 func _physics_process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var direction = mouse_pos - global_position
@@ -31,15 +30,14 @@ func _physics_process(delta: float) -> void:
 	if velocity.length() < lowest_limit_speed:
 		hp.value -= hp_decrease * delta
 		if hp.value == 0:
-			print("die")
-
+			#print("die")
+			pass
 
 func speed_up(speed_rate : float, duration : float):
 	target_speed = target_speed * (1 + speed_rate)
 	print(target_speed)
 	speed = target_speed * acc_time/4
 	speed_up_duration.start(duration)
-
 
 func _on_timer_timeout():
 	speed = initial_speed
