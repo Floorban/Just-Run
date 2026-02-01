@@ -1,21 +1,14 @@
 extends Area2D
+
 @export var spawn_time := 2.0
 @export var ball_scene : PackedScene
 
-
 @onready var ball_spawn_timer: Timer = $ball_spawn_timer
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var col: CollisionShape2D = $CollisionShape2D
-
 
 func _ready() -> void:
 	ball_spawn_timer.timeout.connect(_on_timer_timeout)
 	ball_spawn_timer.start(spawn_time)
-
-
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_timer_timeout():
 	var ball = ball_scene.instantiate()
